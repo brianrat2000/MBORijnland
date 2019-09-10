@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Product;
+use App\Form\CheckoutType;
 use App\Form\ProductType;
 use App\Repository\ProductRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -57,6 +58,60 @@ class ProductController extends AbstractController
     }
 
     /**
+     * @Route("/checkout", name="product_checkout")
+     */
+    public function checkout(Request $request, ProductRepository $productRepository, \Swift_Mailer $mailer)
+    {
+        $total = 0;
+        $form = $this->createForm(CheckoutType::class);
+
+        $form->handleRequest($request);
+
+        $cart = $this->session->get("Cart", array());
+
+        $Products = array();
+
+        foreach ($cart as $id => $product) {
+            array_push($Products, ["Amount" => $product["Amount"], "Product" => $productRepository->find($id)]);
+            $total = $product["Amount"] * $productRepository->find($id)->getPrice();
+        }
+
+
+        if ($form->isSubmitted() && $form->isValid()){
+            $formData = $form->getData();
+
+            $message = (new \Swift_Message('Confirmation Mail'))
+                ->setFrom('1033788@mborijnland.nl')
+                ->setReplyTo('1033788@mborijnland.nl')
+                ->setTo($formData["Email"])
+                ->setBody(
+                    $this->renderView(
+                        'email/checkout.html.twig',
+                        ["Name" => $formData["Name"], "Products" => $Products]
+                    ),
+                    'text/html'
+                )
+            ;
+
+//            var_dump($message);
+//
+//            die();
+
+            $mailer->send($message);
+
+            $this->session->set("Cart", array());
+
+            return $this->redirectToRoute('product_index');
+        }
+
+        return $this->render('product/checkout.html.twig', [
+            "submitForm" => $form->createView(),
+            "Products" => $Products,
+            "total" => $total
+        ]);
+    }
+
+    /**
      * @Route("/{id}", name="product_show", methods={"GET"})
      */
     public function show(Product $product): Response
@@ -103,35 +158,32 @@ class ProductController extends AbstractController
     /**
      * @Route("/{id}/add", name="product_addtocart", methods={"GET", "POST"})
      */
-    public function addtocart(Product $product, ProductRepository $productRepository): Response
+    public function addToCart(Product $product, ProductRepository $productRepository)
     {
         $id = $product->getId();
-        $cart = $this->session->get("Cart", []);
+        $cart = $this->session->get("Cart", array());
+
         if(isset($cart[$id])){
             $cart[$id]["Amount"]++;
-            $amount = $cart[$id]["Amount"];
         } else{
             $cart[$id]["Amount"] = 1;
         }
         $this->session->set("Cart", $cart);
 
-        echo $amount;
-
-//        var_dump($cart);
-
-//        foreach($cart as $item){
-//            $item[] = array($product->getId(), $product->getName(), $product->getDescription(), $product->getPrice(), $item["Amount"]);
-//            var_dump($item);
-//        }
-
         $Products = array();
 
-        foreach($cart as $id => $product){
-            array_push($Products,["Amount" => $product["Amount"], "Product" => $productRepository->find($id)]);
+        $total = 0;
+
+        foreach($cart as $Id => $Product){
+            array_push($Products,["Amount" => $Product["Amount"], "Product" => $productRepository->find($Id)]);
+            $prijs = $product->getPrice();
+
+            $total += $Product["Amount"] * $prijs;
         }
 
         return $this->render('product/addtocart.html.twig', [
             'Products' => $Products,
+            'total' => $total
         ]);
     }
 }
