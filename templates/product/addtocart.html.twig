@@ -3,48 +3,6 @@
 {% block title %}Product index{% endblock %}
 
 {% block body %}
-    {#<h1>Product index</h1>#}
-
-    {#<table class="table">#}
-        {#<thead>#}
-        {#<tr>#}
-            {#<th>Id</th>#}
-            {#<th>Name</th>#}
-            {#<th>Description</th>#}
-            {#<th>Price</th>#}
-            {#<th>Image</th>#}
-            {#<th>actions</th>#}
-        {#</tr>#}
-        {#</thead>#}
-        {#<tbody>#}
-        {#{% for product in products %}#}
-            {#<tr>#}
-                {#<td>{{ product.id }}</td>#}
-                {#<td>{{ product.name }}</td>#}
-                {#<td>{{ product.description }}</td>#}
-                {#<td>{{ product.price }}</td>#}
-                {#<td>{{ product.image }}</td>#}
-                {#<td>#}
-                    {#<a href="{{ path('product_show', {'id': product.id}) }}">show</a>#}
-                    {#<a href="{{ path('product_edit', {'id': product.id}) }}">edit</a>#}
-                    {#<a href="{{ path('product_addtocart', {'id': product.id}) }}">add to card</a>#}
-                {#</td>#}
-            {#</tr>#}
-        {#{% else %}#}
-            {#<tr>#}
-                {#<td colspan="6">no records found</td>#}
-            {#</tr>#}
-        {#{% endfor %}#}
-        {#</tbody>#}
-    {#</table>#}
-
-    {#<a href="{{ path('product_new') }}">Create new</a>#}
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-    <!------ Include the above in your HEAD tag ---------->
-
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <div class="container-fluid">
         <table id="cart" class="table table-hover table-condensed">
             <thead>
@@ -61,9 +19,11 @@
             <tr>
                 <td data-th="Product">
                     <div class="row">
-                        <div class="col-sm-2 "><img src="http://placehold.it/100x100" alt="..." class="img-responsive"/></div>
-                        <div class="col-sm-10">
-                            <h4 class="nomargin">{{ product.Product.id }}</h4>
+                        <div>
+                            <img src="http://placehold.it/100x100" alt="..." class="img-responsive"/>
+                        </div>
+                        <div class="ml-5">
+                            <h4 class="nomargin">{{ product.Product.name }}</h4>
                             <p>{{ product.Product.description }}</p>
                         </div>
                     </div>
@@ -71,12 +31,15 @@
                 <td data-th="Price">€<span class="product_price">{{ product.Product.price }}</span></td>
                 <td data-th="Quantity">
                     <input type="number" class="form-control text-center product_aantal" value="{{ product.Amount }}">
-                    <p class="product_aantal">{{ product.Amount }}</p>
                 </td>
-                <td data-th="Subtotal" class="text-center">{{ total }}</td>
+                <td data-th="Subtotal" class="text-center">€
+                    {% set subtotal = product.Amount * product.Product.price %}
+                    {{ subtotal }}
+                </td>
                 <td class="actions" data-th="">
-                    <a style="color: white;" href="{{ path('product_addtocart', {'id': product.Product.id}) }}" class="btn btn-info btn-sm"><i class="fa fa-plus"></i></a>
-                    <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>
+                    <a style="color: white;" href="{{ path('product_addtocart', {'id': product.Product.id}) }}"
+                       class="btn btn-info btn-sm"><i class="fa fa-plus"></i></a>
+                    <a class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></a>
                 </td>
             </tr>
             </tbody>
@@ -88,11 +51,13 @@
             <tfoot>
 
             <tr>
-                <td><a href="{{ path('product_index') }}" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
+                <td><a href="{{ path('product_index') }}" class="btn btn-warning"><i class="fa fa-angle-left"></i>
+                        Continue Shopping</a></td>
                 <td colspan="2" class=""></td>
-                <td class=" text-center"><strong><p id="total_price"></p></strong></td>
+                <td class="text-center"><strong>€{{ total }}</p></strong></td>
 
-                <td><a href="{{ path('product_checkout') }}" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
+                <td><a href="{{ path('product_checkout') }}" class="btn btn-success btn-block">Checkout <i
+                                class="fa fa-angle-right"></i></a></td>
             </tr>
             </tfoot>
         </table>

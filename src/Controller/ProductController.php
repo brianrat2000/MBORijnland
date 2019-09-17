@@ -13,7 +13,7 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/product")
+ * @Route("/")
  */
 class ProductController extends AbstractController
 {
@@ -73,11 +73,14 @@ class ProductController extends AbstractController
 
         foreach ($cart as $id => $product) {
             array_push($Products, ["Amount" => $product["Amount"], "Product" => $productRepository->find($id)]);
-            $total = $product["Amount"] * $productRepository->find($id)->getPrice();
+
+            $total += $product["Amount"] * $productRepository->find($id)->getPrice();
         }
 
+        $this->session->set("Cart", $cart);
 
-        if ($form->isSubmitted() && $form->isValid()){
+
+        if ($form->isSubmitted() && $form->isValid()) {
             $formData = $form->getData();
 
             $message = (new \Swift_Message('Confirmation Mail'))
@@ -90,8 +93,7 @@ class ProductController extends AbstractController
                         ["Name" => $formData["Name"], "Products" => $Products]
                     ),
                     'text/html'
-                )
-            ;
+                );
 
 //            var_dump($message);
 //
@@ -146,7 +148,7 @@ class ProductController extends AbstractController
      */
     public function delete(Request $request, Product $product): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$product->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $product->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($product);
             $entityManager->flush();
@@ -158,27 +160,26 @@ class ProductController extends AbstractController
     /**
      * @Route("/{id}/add", name="product_addtocart", methods={"GET", "POST"})
      */
-    public function addToCart(Product $product, ProductRepository $productRepository)
+    public function Add(Product $product, ProductRepository $productRepository)
     {
         $id = $product->getId();
         $cart = $this->session->get("Cart", array());
 
-        if(isset($cart[$id])){
+        $total = 0;
+
+        if (isset($cart[$id])) {
             $cart[$id]["Amount"]++;
-        } else{
+        } else {
             $cart[$id]["Amount"] = 1;
         }
         $this->session->set("Cart", $cart);
 
         $Products = array();
 
-        $total = 0;
+        foreach ($cart as $id => $Product) {
+            array_push($Products, ["Amount" => $Product["Amount"], "Product" => $productRepository->find($id)]);
 
-        foreach($cart as $Id => $Product){
-            array_push($Products,["Amount" => $Product["Amount"], "Product" => $productRepository->find($Id)]);
-            $prijs = $product->getPrice();
-
-            $total += $Product["Amount"] * $prijs;
+            $total += $Product["Amount"] * $productRepository->find($id)->getPrice();
         }
 
         return $this->render('product/addtocart.html.twig', [

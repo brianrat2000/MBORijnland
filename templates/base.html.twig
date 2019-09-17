@@ -19,18 +19,28 @@
 <body>
 
 <header>
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-danger">
         <div class="container">
-
             <a class="navbar-brand" href="{{ path('product_index') }}">Home</a>
-
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Hello Page</a>
+                        <a class="nav-link" href="{{ path('product_index') }}">Products</a>
                     </li>
+                </ul>
+                <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
+                        <a class="nav-link" href="{{ path('product_checkout') }}">
+                            Checkout
+                            <span class="badge badge-warning">
+                                <i class="fas fa-shopping-cart"></i>
+                                {% for item in app.session.get("Cart") %}
+                                    {% if item["Amount"] is defined %}
+                                        <span class="amount" style="display: none;">{{ item["Amount"] }}</span>
+                                    {% endif %}
+                                {% endfor %}
+                            </span>
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -38,11 +48,25 @@
     </nav>
 </header>
 
-<main role="main" class="container main">
+<main role="main" class="container mt-5 main">
     {% block body %}{% endblock %}
 </main><!-- /.container -->
 
 {% block javascripts %}{% endblock %}
+<script>
+    const amounts = document.getElementsByClassName('amount')
+    let total = 0
+
+    for (let x = 0; x < amounts.length; x++) {
+        const amount = parseInt(amounts[x].innerText)
+
+        total += amount
+    }
+
+    document.getElementsByClassName('fa-shopping-cart')[0].innerHTML = " " + total
+</script>
+<script src="https://kit.fontawesome.com/525e4431a2.js"></script>
+
 
 </body>
 </html>
