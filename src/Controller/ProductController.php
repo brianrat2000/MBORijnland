@@ -11,9 +11,11 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
- * @Route("/")
+ * @Route("/product")
  */
 class ProductController extends AbstractController
 {
@@ -36,6 +38,8 @@ class ProductController extends AbstractController
 
     /**
      * @Route("/new", name="product_new", methods={"GET","POST"})
+     *
+     * @Security("is_granted('ROLE_ADMIN')")
      */
     public function new(Request $request): Response
     {
@@ -59,6 +63,8 @@ class ProductController extends AbstractController
 
     /**
      * @Route("/checkout", name="product_checkout")
+     *
+     * @Security("is_granted('ROLE_ADMIN')")
      */
     public function checkout(Request $request, ProductRepository $productRepository, \Swift_Mailer $mailer)
     {
@@ -125,6 +131,8 @@ class ProductController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="product_edit", methods={"GET","POST"})
+     *
+     * @Security("is_granted('ROLE_ADMIN')")
      */
     public function edit(Request $request, Product $product): Response
     {
@@ -145,6 +153,8 @@ class ProductController extends AbstractController
 
     /**
      * @Route("/{id}", name="product_delete", methods={"DELETE"})
+     *
+     * @Security("is_granted('ROLE_ADMIN')")
      */
     public function delete(Request $request, Product $product): Response
     {
@@ -155,6 +165,28 @@ class ProductController extends AbstractController
         }
 
         return $this->redirectToRoute('product_index');
+    }
+
+    /**
+     * @Route("/{id}/remove", name="product_remove", methods={"GET", "POST"})
+     */
+    public function removeAction(Product $product)
+    {
+        $id = $product->getId();
+        // check the cart
+        $cart = $this->session->get("Cart", array());
+        // if it doesn't exist redirect to cart index page. end
+        // check if the $id already exists in it.
+        if( isset($cart[$id]) ) {
+            $cart[$id]["Amount"]--;
+            if ($cart[$id]["Amount"] < 1) {
+                unset($cart[$id]);
+            }
+        } else {
+            return $this->redirect( $this->generateUrl('product_index') );
+        }
+        $this->session->set("Cart", $cart);
+        return $this->redirect( $this->generateUrl('product_index') );
     }
 
     /**

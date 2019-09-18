@@ -12,6 +12,7 @@
                 <th>Name</th>
                 <th>Description</th>
                 <th>Price</th>
+                <th>Tax</th>
                 <th>Image</th>
                 <th>actions</th>
             </tr>
@@ -23,6 +24,7 @@
                 <td>{{ product.name }}</td>
                 <td>{{ product.description }}</td>
                 <td>{{ product.price }}</td>
+                <td>{{ product.tax }}</td>
                 <td>{{ product.image }}</td>
                 <td>
                     <a class="btn btn-danger" href="{{ path('product_show', {'id': product.id}) }}">show</a>

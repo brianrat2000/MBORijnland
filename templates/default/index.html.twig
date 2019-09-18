@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Welkom!{% endblock %}
+{% block stylesheet %}
+    <style>
+        div#discount {
+
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+
+    <div style="display: flex;" class="row">
+        <img src="{{ asset('/images/cellphone-close-up-electronics-341523.jpg') }}"
+             style="object-fit: cover" class="col-12 col-md-6 p-0">
+        <div class="info pl-5 pt-5 mb-5 col-12 col-md-6 p-0">
+            <h1 class="display-4">Browse products</h1>
+            <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+            <a class="btn btn-danger" href="{{ path('product_index') }}">Discover</a>
+        </div>
+    </div>
+    <div style="display: flex;" class="row">
+        <div class="info pl-5 pt-5 mb-5 col-12 col-md-6 p-0">
+            <h1 class="display-4">Check your orders</h1>
+            <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+            <a class="btn btn-danger" href="{{ path('order_index') }}">My orders</a>
+        </div>
+        <img src="{{ asset('/images/bank-banking-blur-259200.jpg') }}"
+             width="50%" style="object-fit: cover" class="col-12 col-md-6 p-0">
+    </div>
+
+
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        var countDownDate = new Date("Jan 5, 2021 15:37:25").getTime();
+
+        var x = setInterval(function () {
+
+            var now = new Date().getTime();
+
+            var distance = countDownDate - now;
+
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("discountproduct").innerHTML = days + "d " + hours + "h "
+                + minutes + "m " + seconds + "s ";
+
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("demo").innerHTML = "EXPIRED";
+            }
+        }, 1000);
+    </script>
+{% endblock %}
