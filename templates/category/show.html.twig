@@ -3,7 +3,7 @@
 {% block title %}Category{% endblock %}
 
 {% block body %}
-    <h1>Category</h1>
+    <h1>Category - {{ category.Name }}</h1>
 
     <table class="table">
         <tbody>
@@ -15,12 +15,11 @@
                 <th>Name</th>
                 <td>{{ category.Name }}</td>
             </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ category.Description }}</td>
+            </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('category_index') }}">back to list</a>
-
-    <a href="{{ path('category_edit', {'id': category.id}) }}">edit</a>
-
-    {{ include('category/_delete_form.html.twig') }}
 {% endblock %}

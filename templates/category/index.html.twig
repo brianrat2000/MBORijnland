@@ -3,33 +3,34 @@
 {% block title %}Category index{% endblock %}
 
 {% block body %}
-    <h1>Category index</h1>
+    <h1>Categories</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
+    <div class="mdc-layout-grid container">
         {% for category in categories %}
-            <tr>
-                <td>{{ category.id }}</td>
-                <td>{{ category.Name }}</td>
-                <td>
-                    <a href="{{ path('category_show', {'id': category.id}) }}">show</a>
-                    <a href="{{ path('category_edit', {'id': category.id}) }}">edit</a>
-                </td>
-            </tr>
+            <div class="mdc-layout-grid__cell bg-warning p-2 mb-2 px-3 d-flex">
+                <div class="justify-content-start mr-auto">
+                    <a class="m-0 text-light"
+                       href="{{ path('category_show', {'id': category.id}) }}">{{ category.Name }}</a>
+                    <p class="m-0">{{ category.Description }}</p>
+                    <a class="mdc-chip bg-dark my-2" href="{{ path('category_show', {'id': category.id }) }}">
+                        <span class="mdc-chip__text text-light">{{ category.Name }}</span>
+                    </a>
+                </div>
+                <div class="justify-content-end text-right col-4">
+                    <p class="m-0">Posts</p>
+                    <span class="text-light">- {{ category.posts|length }} Post(s) in this category</span>
+                </div>
+                {#<div class="justify-content-end text-left">#}
+                {#<p class="m-0">Author</p>#}
+                {#<a class="m-0 text-light" href="{{ path('user_show', {'id': post.user.id }) }}">{{ post.user }}</a>#}
+                {#</div>#}
+            </div>
         {% else %}
-            <tr>
-                <td colspan="3">no records found</td>
-            </tr>
+            <div class="mdc-layout-grid__cell">
+                No categories found
+            </div>
         {% endfor %}
-        </tbody>
-    </table>
+    </div>
 
-    <a href="{{ path('category_new') }}">Create new</a>
+    {#<a href="{{ path('category_new') }}">Create new</a>#}
 {% endblock %}

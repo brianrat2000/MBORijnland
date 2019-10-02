@@ -1,30 +1,75 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Post{% endblock %}
+{% block title %}{{ post.Subject }}{% endblock %}
 
 {% block body %}
-    <h1>Post</h1>
+    <h1>Post #{{ post.id }} - {{ post.Subject }}</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ post.id }}</td>
-            </tr>
-            <tr>
-                <th>Subject</th>
-                <td>{{ post.Subject }}</td>
-            </tr>
-            <tr>
-                <th>Body</th>
-                <td>{{ post.Body }}</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="mdc-layout-grid container d-flex">
+        <div class="justify-content-start">
+            <a class="mdc-chip bg-dark mb-2" href="{{ path('category_show', {'id': post.category.id }) }}">
+                <span class="mdc-chip__text text-light">{{ post.category }}</span>
+            </a>
+        </div>
+        <div class="justify-content-end ml-auto text-left">
+            Created by: <a class="m-0 text-warning" href="{{ path('user_show', {'id': post.user.id }) }}">{{ post.user }}</a>
+        </div>
+    </div>
+    <div class="mdc-layout-grid container">
+        <div class="mdc-layout-grid__cell py-2 mb-2 d-flex">
+            <div class="justify-content-start mr-auto border border-warning w-100 p-2">
+                <p class="m-0">{{ post.Body }}</p>
+            </div>
+        </div>
+        <a class="mdc-button mdc-button--raised bg-dark" href="{{ path('post_index') }}">
+            <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_back</i>
+            <span class="mdc-button__label">Back to list</span>
+        </a>
+    </div>
+    <div class="mdc-layout-grid container mt-5">
+        <h2>Comments {% set comment_amount = comments|length %} {{ comment_amount }}</h2>
+        {% if comments is defined %}
+            {% for comment in comments %}
+                {% if post.user is same as(comment.user) %}
+                    <div class="media mb-4 bg-warning py-3 rounded px-1">
+                        <img class="d-flex m-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+                        <div class="media-body">
+                            <a class="mt-0 text-light" href="{{ path('user_show', {'id': post.user.id }) }}"><h4>{{ comment.user }}</h4></a>
+                            {{ comment.description }}
+                        </div>
+                    </div>
+                {% endif %}
 
-    <a href="{{ path('post_index') }}">back to list</a>
+                {% if post.user is not same as(comment.user) %}
+                    <div class="media mb-4 border border-warning px-1">
+                        <img class="d-flex mx-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+                        <div class="media-body">
+                            <a class="mt-0 text-light" href="{{ path('user_show', {'id': post.user.id }) }}"><h4>{{ comment.user }}</h4></a>
+                            {{ comment.description }}
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            No comments found
+        {% endif %}
+    </div>
+    <div class="mdc-layout-grid container mt-5">
+        <form action="{{ path('post_comment', {'id': post.id}) }}" method="post">
+            <div class="form-group">
+                <textarea name="commentContent" required class="form-control col-12" rows="5"></textarea>
+            </div>
+            {% if app.user %}
+                <button type="submit" class="mdc-button mdc-button--raised bg-dark">
+                    <i class="material-icons mdc-button_icon" aria-hidden="true">input</i>
+                    <span class="mdc-button__label">&nbsp; Submit</span>
+                </button>
+            {% else %}
+                <p class="text-muted mt-2">
+                    Please <a class="text-warning" href="{{ path('fos_user_security_login') }}">login</a> to leave a comment
+                </p>
+            {% endif %}
+        </form>
+    </div>
 
-    <a href="{{ path('post_edit', {'id': post.id}) }}">edit</a>
-
-    {{ include('post/_delete_form.html.twig') }}
 {% endblock %}

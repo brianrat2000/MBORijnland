@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Post;
+use App\Entity\Comment;
 use App\Form\PostType;
 use App\Repository\PostRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -49,12 +50,32 @@ class PostController extends AbstractController
     }
 
     /**
+     * @Route("/{id}/comment", name="post_comment", methods={"POST"})
+     */
+    public function comment(Request $request, Post $post): Response
+    {
+        $commentContent = $request->request->get('commentContent');
+
+        $comment = new Comment();
+        $comment->setPost($post);
+        $comment->setUser($this->getUser());
+        $comment->setDescription($commentContent);
+
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($comment);
+        $entityManager->flush();
+
+        return $this->redirect($this->generateUrl('post_show', array('id' => $post->getId())));
+    }
+
+    /**
      * @Route("/{id}", name="post_show", methods={"GET"})
      */
     public function show(Post $post): Response
     {
         return $this->render('post/show.html.twig', [
             'post' => $post,
+            'comments' => $post->getComment(),
         ]);
     }
 

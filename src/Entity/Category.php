@@ -24,13 +24,18 @@ class Category
     private $Name;
 
     /**
+     * @ORM\Column(type="text")
+     */
+    private $Description;
+
+    /**
      * @ORM\OneToMany(targetEntity="App\Entity\Post", mappedBy="Category")
      */
     private $posts;
 
     public function __toString()
     {
-        return (string) $this->getId();
+        return (string) $this->getName();
     }
 
     public function __construct()
@@ -82,6 +87,18 @@ class Category
                 $post->setCategory(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->Description;
+    }
+
+    public function setDescription(string $Description): self
+    {
+        $this->Description = $Description;
 
         return $this;
     }

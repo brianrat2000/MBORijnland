@@ -3,35 +3,29 @@
 {% block title %}Post index{% endblock %}
 
 {% block body %}
-    <h1>Post index</h1>
+    <h1>Symforum</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Subject</th>
-                <th>Body</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
+    <div class="mdc-layout-grid container">
         {% for post in posts %}
-            <tr>
-                <td>{{ post.id }}</td>
-                <td>{{ post.Subject }}</td>
-                <td>{{ post.Body }}</td>
-                <td>
-                    <a href="{{ path('post_show', {'id': post.id}) }}">show</a>
-                    <a href="{{ path('post_edit', {'id': post.id}) }}">edit</a>
-                </td>
-            </tr>
+            <div class="mdc-layout-grid__cell bg-warning p-2 mb-2 px-3 d-flex">
+                <div class="justify-content-start mr-auto ">
+                    <a class="m-0 text-light" href="{{ path('post_show', {'id': post.id}) }}">{{ post.Subject }}</a>
+                    <p class="m-0">{{ post.Body|easyadmin_truncate(100) }}</p>
+                    <a class="mdc-chip bg-dark my-2" href="{{ path('category_show', {'id': post.category.id }) }}">
+                        <span class="mdc-chip__text text-light">{{ post.category }}</span>
+                    </a>
+                </div>
+                <div class="justify-content-end text-right col-4">
+                    <p class="m-0">Author</p>
+                    <a class="m-0 text-light" href="{{ path('user_show', {'id': post.user.id }) }}">{{ post.user }}</a>
+                </div>
+            </div>
         {% else %}
-            <tr>
-                <td colspan="4">no records found</td>
-            </tr>
+            <div class="mdc-layout-grid__cell">
+                No posts found
+            </div>
         {% endfor %}
-        </tbody>
-    </table>
+    </div>
 
-    <a href="{{ path('post_new') }}">Create new</a>
+    <a class="mdc-button mdc-button--raised bg-dark mt-3" href="{{ path('post_new') }}">New post</a>
 {% endblock %}
