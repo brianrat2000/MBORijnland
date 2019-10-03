@@ -41,10 +41,10 @@
                 {% endif %}
 
                 {% if post.user is not same as(comment.user) %}
-                    <div class="media mb-4 border border-warning px-1">
-                        <img class="d-flex mx-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+                    <div class="media mb-4 border border-warning py-3 rounded px-1">
+                        <img class="d-flex m-3 rounded-circle" src="http://placehold.it/50x50" alt="">
                         <div class="media-body">
-                            <a class="mt-0 text-light" href="{{ path('user_show', {'id': post.user.id }) }}"><h4>{{ comment.user }}</h4></a>
+                            <a class="mt-0 text-warning" href="{{ path('user_show', {'id': post.user.id }) }}"><h4>{{ comment.user }}</h4></a>
                             {{ comment.description }}
                         </div>
                     </div>
@@ -70,6 +70,24 @@
                 </p>
             {% endif %}
         </form>
+    </div>
+
+    <div class="mdc-select">
+        <i class="mdc-select__dropdown-icon"></i>
+        <select class="mdc-select__native-control">
+            <option value="" disabled selected></option>
+            <option value="grains">
+                Bread, Cereal, Rice, and Pasta
+            </option>
+            <option value="vegetables">
+                Vegetables
+            </option>
+            <option value="fruit">
+                Fruit
+            </option>
+        </select>
+        <label class="mdc-floating-label">Pick a Food Group</label>
+        <div class="mdc-line-ripple"></div>
     </div>
 
 {% endblock %}

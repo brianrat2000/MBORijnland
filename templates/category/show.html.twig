@@ -1,25 +1,36 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Category{% endblock %}
+{% block title %}{{ category.Name }}{% endblock %}
 
 {% block body %}
     <h1>Category - {{ category.Name }}</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ category.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ category.Name }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ category.Description }}</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="mdc-layout-grid container">
+        <div class="mdc-layout-grid__cell py-2 mb-2 d-flex">
+            <div class="justify-content-start mr-auto border border-warning w-100 p-2">
+                <p class="m-0">{{ category.Description }}</p>
+            </div>
+        </div>
+        <a class="mdc-button mdc-button--raised bg-dark" href="{{ path('category_index') }}">
+            <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_back</i>
+            <span class="mdc-button__label">Back to list</span>
+        </a>
+    </div>
+    <div class="mdc-layout-grid container mt-5">
+        <h2>Post(s) in category {% set post_amount = post|length %} {{ post_amount }}</h2>
+
+        {% for p in post %}
+            <div class="media mb-4 bg-warning py-3 rounded px-1">
+                <img class="d-flex m-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+                <div class="media-body">
+                    <a class="mt-0 text-light" href="{{ path('post_show', {'id': p.id }) }}">
+                        <h4>{{ p.Subject }}</h4></a>
+                    {{ p.Body }}
+                </div>
+            </div>
+        {% else %}
+            No posts found with this category
+        {% endfor %}
+    </div>
 
 {% endblock %}

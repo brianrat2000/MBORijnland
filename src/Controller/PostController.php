@@ -10,6 +10,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @Route("/post")
@@ -28,6 +30,7 @@ class PostController extends AbstractController
 
     /**
      * @Route("/new", name="post_new", methods={"GET","POST"})
+     * @IsGranted("IS_FULLY_AUTHENTICATED")
      */
     public function new(Request $request): Response
     {
@@ -51,6 +54,7 @@ class PostController extends AbstractController
 
     /**
      * @Route("/{id}/comment", name="post_comment", methods={"POST"})
+     * @IsGranted("IS_FULLY_AUTHENTICATED")
      */
     public function comment(Request $request, Post $post): Response
     {
@@ -81,6 +85,7 @@ class PostController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="post_edit", methods={"GET","POST"})
+     * @IsGranted("IS_FULLY_AUTHENTICATED")
      */
     public function edit(Request $request, Post $post): Response
     {
@@ -101,6 +106,7 @@ class PostController extends AbstractController
 
     /**
      * @Route("/{id}", name="post_delete", methods={"DELETE"})
+     * @IsGranted("ROLE_SUPER")
      */
     public function delete(Request $request, Post $post): Response
     {

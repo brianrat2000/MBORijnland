@@ -4,19 +4,39 @@
     <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 {% endif %}
 
-<form action="{{ path("fos_user_security_check") }}" method="post">
+<form action="{{ path("fos_user_security_check") }}" method="post" class="mdc-layout-grid">
     {% if csrf_token %}
         <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
     {% endif %}
 
-    <label for="username">{{ 'security.login.username'|trans }}</label>
-    <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" autocomplete="username" />
-
-    <label for="password">{{ 'security.login.password'|trans }}</label>
-    <input type="password" id="password" name="_password" required="required" autocomplete="current-password" />
-
-    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-    <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
-
-    <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
+    <div class="mdc-text-field text-field-with-input mdc-ripple-upgraded mt-2 w-50">
+        <input class="mdc-text-field__input" type="text" id="username" name="_username" value="{{ last_username }}" required="required" autocomplete="username">
+        <div class="mdc-line-ripple"></div>
+        <label class="mdc-floating-label mdc-floating-label--float-above">Username</label>
+    </div>
+    <br>
+    <div class="mdc-text-field text-field-with-input mdc-ripple-upgraded mt-2 w-50">
+        <input class="mdc-text-field__input"type="password" id="password" name="_password" required="required" autocomplete="current-password">
+        <div class="mdc-line-ripple"></div>
+        <label class="mdc-floating-label mdc-floating-label--float-above">Password</label>
+    </div>
+    <br>
+    <div class="mdc-form-field mt-2 w-50">
+        <div class="mdc-checkbox">
+            <input type="checkbox" id="remember_me" name="_remember_me" value="on"
+                   class="mdc-checkbox__native-control"/>
+            <div class="mdc-checkbox__background">
+                <svg class="mdc-checkbox__checkmark"
+                     viewBox="0 0 24 24">
+                    <path class="mdc-checkbox__checkmark-path"
+                          fill="none"
+                          d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                </svg>
+                <div class="mdc-checkbox__mixedmark"></div>
+            </div>
+        </div>
+        <label for="remember_me">{{ 'security.login.remember_me'|trans }} </label>
+    </div>
+    <br>
+    <input class="mdc-button mdc-button--raised mt-2 w-50 bg-warning" type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
 </form>

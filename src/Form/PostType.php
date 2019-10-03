@@ -2,10 +2,14 @@
 
 namespace App\Form;
 
+use App\Entity\Category;
 use App\Entity\Post;
+use App\Entity\User;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+
 
 class PostType extends AbstractType
 {
@@ -14,7 +18,10 @@ class PostType extends AbstractType
         $builder
             ->add('Subject')
             ->add('Body')
-            ->add('Category')
+            ->add('Category', EntityType::class, [
+                'class' => Category::class,
+                'attr' => ['class' => 'mdc-select'],
+            ])
             ->add('User')
         ;
     }
