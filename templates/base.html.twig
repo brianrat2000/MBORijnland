@@ -49,8 +49,8 @@
     {% block stylesheets %}{% endblock %}
 </head>
 <header>
-    <nav class="navbar navbar-expand-md navbar-dark bg-warning">
-        <a class="navbar-brand text-dark" href="{{ path('default') }}">Home</a>
+    <nav class="navbar navbar-expand-md navbar-dark">
+        <a class="navbar-brand text-light" href="{{ path('default') }}">Home</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -60,38 +60,38 @@
                 {% if app.user %}
                     {% if is_granted('ROLE_SUPER_ADMIN') %}
                     <li class="nav-item">
-                        <a href="{{ path('user_index') }}" class="nav-link text-dark">Users</a>
+                        <a href="{{ path('user_index') }}" class="nav-link text-light">Users</a>
                     </li>
                     {% endif %}
                     <li class="nav-item">
-                        <a href="{{ path('post_index') }}" class="nav-link text-dark">Posts</a>
+                        <a href="{{ path('post_index') }}" class="nav-link text-light">Posts</a>
                     </li>
                     <li class="nav-item">
                         <a href="{{ path('category_index') }}"
-                           class="nav-link text-dark">Categories</a>
+                           class="nav-link text-light">Categories</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ path('fos_user_profile_show') }}" class="nav-link text-dark">Profile</a>
+                        <a href="{{ path('fos_user_profile_show') }}" class="nav-link text-light">Profile</a>
                     </li>
                     <li class="nav-item">
                         <a href="{{ path('fos_user_security_logout') }}"
-                           class="nav-link text-dark">Logout</a>
+                           class="nav-link text-light">Logout</a>
                     </li>
                 {% else %}
                     <li class="nav-item">
-                        <a href="{{ path('post_index') }}" class="nav-link text-dark">Posts</a>
+                        <a href="{{ path('post_index') }}" class="nav-link text-light">Posts</a>
                     </li>
                     <li class="nav-item">
                         <a href="{{ path('category_index') }}"
-                           class="nav-link text-dark">Categories</a>
+                           class="nav-link text-light">Categories</a>
                     </li>
                     <li class="nav-item">
                         <a href="{{ path('fos_user_registration_register') }}"
-                           class="nav-link text-dark">Register</a>
+                           class="nav-link text-light">Register</a>
                     </li>
                     <li class="nav-item">
                         <a href="{{ path('fos_user_security_login') }}"
-                           class="nav-link text-dark">Login</a>
+                           class="nav-link text-light">Login</a>
                     </li>
                 {% endif %}
             </ul>

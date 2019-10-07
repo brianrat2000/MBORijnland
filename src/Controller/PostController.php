@@ -30,7 +30,7 @@ class PostController extends AbstractController
 
     /**
      * @Route("/new", name="post_new", methods={"GET","POST"})
-     * @IsGranted("IS_FULLY_AUTHENTICATED")
+     * @IsGranted("ROLE_USER")
      */
     public function new(Request $request): Response
     {

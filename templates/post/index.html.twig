@@ -5,27 +5,66 @@
 {% block body %}
     <h1>Symforum</h1>
 
-    <div class="mdc-layout-grid container">
-        {% for post in posts %}
-            <div class="mdc-layout-grid__cell bg-warning p-2 mb-2 px-3 d-flex">
-                <div class="justify-content-start mr-auto ">
-                    <a class="m-0 text-light" href="{{ path('post_show', {'id': post.id}) }}">{{ post.Subject }}</a>
-                    <p class="m-0">{{ post.Body|easyadmin_truncate(100) }}</p>
-                    <a class="mdc-chip bg-dark my-2" href="{{ path('category_show', {'id': post.category.id }) }}">
-                        <span class="mdc-chip__text text-light">{{ post.category }}</span>
-                    </a>
+    {#<div class="mdc-layout-grid container">#}
+        {#{% for post in posts %}#}
+            {#<div class="mdc-layout-grid__cell bg-warning p-2 mb-2 px-3 d-flex">#}
+                {#<div class="justify-content-start mr-auto ">#}
+                    {#<a class="m-0 text-light" href="{{ path('post_show', {'id': post.id}) }}">{{ post.Subject }}</a>#}
+                    {#<p class="m-0">{{ post.Body|easyadmin_truncate(100) }}</p>#}
+                    {#<a class="mdc-chip bg-dark my-2" href="{{ path('category_show', {'id': post.category.id }) }}">#}
+                        {#<span class="mdc-chip__text text-light">{{ post.category }}</span>#}
+                    {#</a>#}
+                {#</div>#}
+                {#<div class="justify-content-end text-right col-4">#}
+                    {#<p class="m-0">Author</p>#}
+                    {#<a class="m-0 text-light" href="{{ path('user_show', {'id': post.user.id }) }}">{{ post.user }}</a>#}
+                {#</div>#}
+            {#</div>#}
+        {#{% else %}#}
+            {#<div class="mdc-layout-grid__cell">#}
+                {#No posts found#}
+            {#</div>#}
+        {#{% endfor %}#}
+    {#</div>#}
+
+    <div class="mdc-layout-grid">
+        <div class="mdc-layout-grid__inner">
+            {% for post in posts %}
+                <div class="mdc-layout-grid__cell">
+                    <div class="mdc-card demo-card">
+                        <div class="mdc-card__primary-action demo-card__primary-action" tabindex="0">
+                            <div class="mdc-card__media mdc-card__media--16-9 demo-card__media"
+                                 style="background-image: url(&quot;https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg&quot;);"></div>
+                            <div class="demo-card__primary pl-3 pt-2">
+                                <h2 class="demo-card__title mdc-typography mdc-typography--headline6">
+                                    <b>{{ post.Subject|capitalize }}</b></h2>
+                                <h3 class="demo-card__subtitle mdc-typography mdc-typography--subtitle2">
+                                    By <a class="m-0" href="{{ path('user_show', {'id': post.user.id }) }}">{{ post.user|capitalize }}</a></h3>
+                            </div>
+                            <div class="demo-card__secondary mdc-typography mdc-typography--body2 pl-3 pr-3 pt-2">
+                                {{ post.Body|easyadmin_truncate(100)|capitalize }}
+                            </div>
+                        </div>
+                        <div class="mdc-card__actions">
+                            <div class="mdc-card__action-buttons">
+                                <a class="mdc-button mdc-card__action mdc-card__action--button"
+                                   href="{{ path('post_show', {'id': post.id}) }}">READ</a>
+                            </div>
+                            <div class="mdc-card__action-icons">
+                                <a class="mdc-button mdc-card__action mdc-card__action--button"
+                                   href="{{ path('post_show', {'id': post.id}) }}">{{ post.category|upper }}</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="justify-content-end text-right col-4">
-                    <p class="m-0">Author</p>
-                    <a class="m-0 text-light" href="{{ path('user_show', {'id': post.user.id }) }}">{{ post.user }}</a>
+            {% else %}
+                <div class="mdc-layout-grid__cell">
+                    No posts found
                 </div>
-            </div>
-        {% else %}
-            <div class="mdc-layout-grid__cell">
-                No posts found
-            </div>
-        {% endfor %}
+            {% endfor %}
+        </div>
     </div>
 
-    <a class="mdc-button mdc-button--raised bg-dark mt-3" href="{{ path('post_new') }}">New post</a>
+
+    <a class="mdc-button mdc-button--raised mt-3" href="{{ path('post_new') }}">New post</a>
 {% endblock %}
