@@ -47,5 +47,5 @@
 # Embedded web-server pid file
 /.web-server-pid
 
-# ENV
-/.env
+# IDEA
+/.idea/
