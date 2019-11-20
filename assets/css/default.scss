@@ -1,0 +1,124 @@
+* {
+  font-family: 'Karla', sans-serif;
+  color: #FFF;
+}
+
+/* Navigation */
+nav ul li a{
+  font-weight: bold;
+  letter-spacing: 0.1em;
+}
+/* Header */
+.header{
+  min-height: 100vh;
+  background-image: url("../images/HeaderBackground.png");
+  background-size: cover;
+}
+.headerInfo{
+  margin-top: 7.5vh;
+  padding-bottom: 7.5vh;
+}
+.headerInfo h1{
+  font-weight: bold;
+  font-size: 52px;
+  letter-spacing: 0.1em;
+  line-height: 61px;
+}
+.headerInfo p{
+  font-weight: bold;
+  font-size: 18px;
+  letter-spacing: 0.1em;
+  line-height: 23px;
+}
+.headerInfo .header-btn{
+  background-color: #D9C900;
+  color: #000000;
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: 18px;
+  transition: .5s;
+}
+.headerInfo iframe{
+  float: right;
+}
+
+iframe, embed{
+  border-radius: 30px;
+}
+
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
+
+.contact-title {
+  font-family: 'Poppins',Helvetica,Arial,Lucida,sans-serif;
+  font-weight: 600;
+  font-size: 40px;
+  color: #ffffff!important;
+  line-height: 1.3em;
+  text-align: left;
+}
+
+@media all and (min-width: 767px) and (max-width: 980px) {
+  .headerInfo p{
+    font-size: 18px;
+  }
+  .headerInfo iframe{
+    float: unset;
+    width: 100%;
+    height: 350px;
+  }
+  .contact-title {
+    text-align: center;
+    font-size: 22px;
+  }
+}
+
+/*** Responsive Styles Smartphone Only ***/
+@media all and (max-width: 768px) {
+  .contact-title {
+    text-align: center;
+    font-size: 18px;
+  }
+  .headerInfo{
+    margin-top: unset;
+  }
+  .headerInfo h1{
+    font-weight: bold;
+    font-size: 36px;
+    letter-spacing: 0.1em;
+    line-height: 45px;
+  }
+  .headerInfo p{
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    line-height: 20px;
+  }
+  .headerInfo .header-btn{
+    font-size: 14px !important;
+  }
+  .headerInfo iframe{
+    float: unset;
+    width: 100%;
+    height: 250px;
+    margin-top: 15%;
+  }
+}
+
+@media only screen and (min-width: 1440px){
+  .headerInfo iframe{
+    margin-left: 10%;
+  }
+}

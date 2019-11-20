@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
+@import "Mixins";
+
+.home {
+    & header {
+        height: 100vh;
+        width: 100%;
+
+        background-image:
+                linear-gradient(to bottom, rgba(34,54,67,0.3), rgba(34,54,67,0.3)),
+                url('../images/headerBackground.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        display: flex;
+        align-items: center;
+
+        & .header {
+            &Content {
+                margin: 0 auto;
+
+                & h1 {
+                    @include Font(52px, bold, #fff, 0.1em, 61px);
+
+                    margin: 0 0 24px 0;
+                    width: 50%;
+                }
+
+                & p {
+                    @include Font(20px, bold, #fff, 0.1em, 23px);
+
+                    width: 50%;
+                    padding-left: 20px;
+                    margin-bottom: 50px;
+                }
+
+                & a {
+                    @include Font(20px, bold, #fff, 0.1em, 23px);
+
+                    text-decoration: none;
+                    background-color: #D9C900;
+
+                    padding: 25px 64px;
+                    border-radius: 30px;
+
+                    text-transform: uppercase;
+                    transition: all .3s ease;
+
+                    &:hover {
+                        letter-spacing: 0.2em;
+                        padding: 25px calc(64px - 9px);
+                    }
+                }
+            }
+        }
+    }
+    & .access {
+        min-height: 50vh;
+        width: 100%;
+        max-width: 1080px;
+        margin: 0 auto;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &Item {
+            display: flex;
+            justify-content: center;
+
+            width: 30%;
+
+            & h4 {
+                @include Font(20px, bold, #000, 0.1em, 23px);
+
+                margin: 0 0 20px 0;
+
+                & span {
+                    font-weight: normal;
+                }
+            }
+
+            & p {
+                @include Font(14px, 300, #000, 0.1em, 120%, 'Open Sans');
+            }
+
+            & img {
+                width: 50px;
+                height: 45px;
+                margin-right: 22px;
+
+                object-fit: contain;
+            }
+        }
+    }
+}

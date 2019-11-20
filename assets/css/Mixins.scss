@@ -1,0 +1,8 @@
+@mixin Font ($Size, $Weight: normal, $Color: #fff, $LetterSpacing: 0.1em, $LineHeight: 23px, $Font: 'Karla') {
+  font-family: $Font, sans-serif;
+  font-size: $Size;
+  font-weight: $Weight;
+  color: $Color;
+  letter-spacing: $LetterSpacing;
+  line-height: $LineHeight;
+}
