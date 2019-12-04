@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87b01a36-fe1b-40a0-bf88-cefb12a9fc0f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Question.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Question.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Survey.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Survey.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/QuestionType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/QuestionType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/SurveyType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/SurveyType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/collectionTheme.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/collectionTheme.collection.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/survey/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/survey/_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/survey/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/survey/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env.test" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
