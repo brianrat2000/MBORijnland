@@ -1,0 +1,17 @@
+<script type="text/javascript" src={{ asset('js/jquery.collection.js') }}></script>
+
+{% form_theme form 'collectionTheme.html.twig' %}
+{{ form(form) }}
+
+<script type="text/javascript">
+    $('.QuestionCollection').collection({
+        allow_duplicate: true,
+        allow_up: true,
+        allow_down: true,
+        add: '<a href="#" class="btn btn-default" title="Add element"><span class="glyphicon glyphicon-plus-sign"></span></a>',
+
+        // here is the magic!
+        elements_selector: 'tr.item',
+        elements_parent_selector: '%id% tbody'
+    });
+</script>

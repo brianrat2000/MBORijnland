@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}QuestionType index{% endblock %}
+
+{% block body %}
+    <h1>QuestionType index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for question_type in question_types %}
+            <tr>
+                <td>{{ question_type.id }}</td>
+                <td>{{ question_type.Name }}</td>
+                <td>
+                    <a href="{{ path('question_type_show', {'id': question_type.id}) }}">show</a>
+                    <a href="{{ path('question_type_edit', {'id': question_type.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('question_type_new') }}">Create new</a>
+{% endblock %}

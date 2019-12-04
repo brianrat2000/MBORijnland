@@ -1,0 +1,211 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+<style>
+@import url('https://fonts.googleapis.com/css?family=Karla&display=swap');
+
+* {
+    font-family: 'Karla', sans-serif !important;;
+}
+
+.masthead {
+  height: 100vh;
+  min-height: 500px;
+  background-image: url('{{asset('images/background.png')}}');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.header-title {
+    font-style: normal !important;
+    font-weight: bold !important;
+    font-size: 48px !important;
+    line-height: 61px !important;
+    letter-spacing: 0.1em !important;
+}
+.header-subtitle {
+    font-style: normal !important;
+    font-weight: bold !important;
+    font-size: 20px !important;
+    line-height: 23px !important;
+    align-items: center !important;
+    letter-spacing: 0.1em !important;
+}
+.nav-link, .navbar-brand {
+    font-style: normal !important;
+    font-weight: bold !important;
+    line-height: 23px !important;
+    font-size: 16px;
+    letter-spacing: 0.1em !important;
+    color: #fff !important;
+}
+#navbar-brand {
+    width: 200px;
+    transition: 0.5s;
+}
+
+/*** Responsive Styles Standard Desktop +***/
+@media all and (min-width: 1100px) {
+    .container {
+        max-width: 1366px;
+  }
+}
+@media all and (max-width: 768px) {
+  .h-100 {
+    height: 100%!important;
+    padding: 15% 5%;
+  }
+  .home-title {
+    font-size: 28px !important;
+  }
+  div#navbarResponsive {
+    background-color: #fff;
+    border-top: 6px solid #000;
+  }
+  div#navbarResponsive ul li a {
+    color: #000 !important;
+    padding: 5%;
+    text-transform: uppercase;
+  }
+  div#navbarResponsive ul li a:hover {
+    background-color: #f2f2f2;
+  }
+}
+
+
+
+#navbar-container {
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.btn-yellow {
+    text-transform: uppercase;
+    background-color: #D9C900;
+    padding: 10px 40px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.btn-yellow:hover {
+    color: #fff;
+}
+
+</style>
+<navigation  class="navbar navbar-expand-lg navbar-light fixed-top" id='navbar-container'>
+  <div class="container">
+    <a class="navbar-brand" href="#"><img id='navbar-brand' src="{{asset('images/69hY88r.png')}}"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home
+                <span class="sr-only">(current)</span>
+              </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Over MKB</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Meld je aan!</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</navigation>
+
+<!-- Full Page Image Header with Vertically Centered Content -->
+<header class="masthead text-white">
+  <div class="container h-100">
+    <div class="row h-100 align-items-center">
+        <div class="row">
+            <div class="col-md-5">
+                <h1 class="home-title ont-weight-light header-title">MKB Werkplaats</h1>
+                <p class="lead">Hoe future proof is uw onderneming? Onze studenten zien de digitale kansen, uitdagingen en mogelijkheden voor uw bedrijf waar u (nog) geen weet van hebt. We gaan graag samen met u aan de slag! Bereik meer klanten, werk efficiënter, maak meer winst. Heeft u een concrete vraag of wilt u samen kijken wat er mogelijk is. Meldt u aan!</p>
+            </div>
+            <div class="col-md-7 text-right">
+                <iframe title="vimeo-player" src="https://player.vimeo.com/video/154955979" width="100%" height="450px" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+      </div>
+    </div>
+</div>
+</header>
+
+<section class="py-5">
+  <div class="container">
+    {# <h2 class="font-weight-light">Page Content</h2> #}
+    <div class='row text-center'>
+       <div class='col'>
+            <div class='row'>
+                <div class='col-xl-2'></div>
+                <div class='col-xl-10'>test2</div>
+            </div>
+       </div>
+        <div class='col'>
+            <div class='row'>
+                <div class='col-xl-2'></div>
+                <div class='col-xl-10'>test2</div>
+            </div>
+       </div>
+       <div class='col'>
+            <div class='row'>
+                <div class='col-xl-2'></div>
+                <div class='col-xl-10'>test2</div>
+            </div>
+       </div>
+  </div>
+</div>
+    </div>
+  </div>
+</section>
+
+<div class="container-fluid bg-light py-5">
+    <div class="container py-3">
+        <div class="row">
+            <div class="col-md-6">
+                <iframe title="vimeo-player" src="https://player.vimeo.com/video/154955979" width="100%" height="360" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="col-md-6">
+            <h4 class="subheading">DE OPLOSSING VOOR JOUW ONDERNEMING</h4>
+            <p class="text-muted">Door ICT-onderwijs, onderzoek, overheid  en bedrijven te verbinden in één gebouw ontstaat een broedplaats vol interactie en samenwerking. Zo creëren wij een innovatieve plek waar kennisdeling plaatsvindt, innovaties ontstaan en co-creaties geboren worden. Daarmee is de Dutch Innovation Factory een Playground voor digital Innovators geworden. Een warm welkom met onze vraag aan jou “hoe wordt jij een Playground voor digital Innovators.</p>
+            <a class='btn btn-yellow' href='#'>Lees Meer</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class='container-fluid' style='margin: 0; padding: 0;'>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2453.8299060595095!2d4.512674716075615!3d52.046410779727225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c5cec429a6395f%3A0x13e973bd0ecd70c!2sDutch%20Innovation%20Factory!5e0!3m2!1sen!2snl!4v1574157175436!5m2!1sen!2snl" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+</div>
+<script>
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+    document.getElementById("navbar-brand").style.width = "150px";
+    document.getElementById("navbar-container").style.backgroundColor = "rgba(0,0,0,1)";
+    function resizeText() {
+    var x = document.getElementsByClassName("nav-link");
+    for (var i = 0; i < x.length; i++) {
+        x[i].style.fontSize="16px";
+        }
+    };
+  } else {
+    document.getElementById("navbar-brand").style.width = "200px";
+    document.getElementById("navbar-container").style.backgroundColor = "rgba(255,255,255,0)";
+    var x = document.getElementsByClassName("nav-link");
+    for (var i = 0; i < x.length; i++) {
+        x[i].style.fontSize="20px";
+        }
+    }
+}
+</script>
+{% endblock %}
+

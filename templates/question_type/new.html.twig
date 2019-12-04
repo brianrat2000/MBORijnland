@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New QuestionType{% endblock %}
+
+{% block body %}
+    <h1>Create new QuestionType</h1>
+
+    {{ include('question_type/_form.html.twig') }}
+
+    <a href="{{ path('question_type_index') }}">back to list</a>
+{% endblock %}

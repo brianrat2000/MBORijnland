@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {% block stylesheets %}{% endblock %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    {# <script src="https://kit.fontawesome.com/e68d22dc5d.js" crossorigin="anonymous"></script> #}
+</head>
+<body>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+{% block body %}{% endblock %}
+{% block javascripts %}{% endblock %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<!-- Footer -->
+<footer class="page-footer font-small text-white" style='background-color: #000;'>
+<!-- Footer Links -->
+<div class="container text-center text-md-left pt-5">
+    <!-- Grid row -->
+    <div class="row mt-3">
+    <!-- Grid column -->
+    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+        <!-- Content -->
+        <h6 class="text-uppercase font-weight-bold">De Werkplaats</h6>
+        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        <a class="navbar-brand mt-5" href="#"><img id='navbar-brand' src='{{asset('images/69hY88r.png')}}'></a>
+    </div>
+    <!-- Grid column -->
+    <!-- Grid column -->
+    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+        <!-- Links -->
+        <h6 class="text-uppercase font-weight-bold">Menu</h6>
+        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        <p><a class='text-white' href="#!">Home</a></p>
+        <p><a class='text-white' href="#!">Over MKB</a></p>
+        <p><a class='text-white' href="#!">Contact</a></p>
+        <p><a class='text-white' href="#!">Meld je aan!</a></p>
+    </div>
+    <!-- Grid column -->
+
+    <!-- Grid column -->
+    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+        <!-- Links -->
+        <h6 class="text-uppercase font-weight-bold">Informatie</h6>
+        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        <p><a class='text-white' href="#!">Algemene Voorwaarden</a></p>
+        <p><a class='text-white' href="#!">Privacy Verklaring</a></p>
+        <p><a class='text-white' href="#!">Cookie Verklaring</a></p>
+        <p><a class='text-white' href="#!">Help</a></p>
+    </div>
+    <!-- Grid column -->
+    <!-- Grid column -->
+    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+        <!-- Links -->
+        <h6 class="text-uppercase font-weight-bold">Contact</h6>
+        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        <p><i class="fas fa-building mr-1"></i> Bleiswijkseweg 37E, 2712 PB Zoetermeer</p>
+        <p><i class="fas fa-envelope mr-1"></i> <a class='text-white' href='mailto:info@dutchinnovationfactory.nl'>info@dutchinnovationfactory.nl</a></p>
+        <p><i class="fas fa-phone mr-1"></i><a class='text-white' href='tel:+ 31 6 12345678'> + 31 6 12345678</a></p>
+    </div>
+    <!-- Grid column -->
+    </div>
+    <!-- Grid row -->
+</div>
+<!-- Footer Links -->
+<!-- Copyright -->
+<div class="footer-copyright text-center py-3">© 2019 Copyright Werkplaats.nl | 
+    <a style='color: #fff;' href="https://miguelfieira.nl" target='_blank'> Miguel Fieira</a>
+</div>
+<!-- Copyright -->
+</footer>
+<!-- Footer -->
+</body>
+</html>
