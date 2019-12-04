@@ -6,6 +6,7 @@
     <div class="container">
         <h1>Edit Survey</h1>
 
+        {% form_theme form 'collectionTheme.collection.html.twig' %}
         {{ include('survey/_form.html.twig', {'button_label': 'Update'}) }}
 
         <a href="{{ path('survey_index') }}">back to list</a>

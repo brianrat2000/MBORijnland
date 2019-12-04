@@ -29,7 +29,7 @@ class Survey
     private $Active;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Question", mappedBy="Survey", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="App\Entity\Question", mappedBy="Survey", orphanRemoval=true, cascade={"persist"})
      */
     private $Questions;
 

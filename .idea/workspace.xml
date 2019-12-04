@@ -2,107 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87b01a36-fe1b-40a0-bf88-cefb12a9fc0f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.env.test" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/MBORijnland Youp.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/symfony2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/console" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/phpunit" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/bootstrap.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/packages/cache.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/packages/dev/debug.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/packages/dev/easy_log_handler.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/packages/dev/monolog.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/packages/dev/swiftmailer.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/packages/dev/web_profiler.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/packages/doctrine.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/packages/doctrine_migrations.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/packages/fos_user.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/packages/framework.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/packages/prod/doctrine.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/packages/prod/monolog.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/packages/prod/routing.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/packages/routing.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/packages/sensio_framework_extra.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/packages/swiftmailer.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/packages/test/framework.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/packages/test/monolog.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/packages/test/swiftmailer.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/packages/test/validator.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/packages/test/web_profiler.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/packages/translation.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/packages/twig.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/packages/validator.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/routes.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/routes/annotations.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/routes/dev/twig.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/routes/dev/web_profiler.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/routes/fos_user.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/phpunit.xml.dist" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/background.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/AboutController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/ContactController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/DefaultController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/QuestionController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/QuestionTypeController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/SurveyController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Question.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/QuestionType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Survey.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/ContactType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/QuestionType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/QuestionTypeType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/SurveyType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Kernel.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Migrations/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/QuestionRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/QuestionTypeRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/SurveyRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/about/index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/collectionTheme.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/contact/index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/default/index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/jquery.collection.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/question/_delete_form.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/question/_form.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/question/edit.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/question/index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/question/new.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/question/show.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/question_type/_delete_form.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/question_type/_form.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/question_type/edit.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/question_type/index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/question_type/new.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/question_type/show.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/survey/_delete_form.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/survey/_form.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/survey/edit.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/survey/index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/survey/new.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/survey/show.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/translations/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Question.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Question.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Survey.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Survey.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/QuestionType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/QuestionType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/SurveyType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/SurveyType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/collectionTheme.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/collectionTheme.collection.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/survey/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/survey/_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/survey/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/survey/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

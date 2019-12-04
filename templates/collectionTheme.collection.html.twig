@@ -29,9 +29,8 @@
             {{ form_errors(form) }}
 
             {# Don't forget to add the collection attributes in your markup #}
-            <table class="table" {{ block('widget_attributes') }}>
+            <table {{ block('widget_attributes') }}>
                 <thead>
-                <th>ID</th>
                 <th>Name</th>
                 <th>Type</th>
                 <th>&nbsp;</th>
@@ -42,10 +41,9 @@
                  # we can't form_widget(form) as it would render parent markup for a collection, so
                  # we iterate manually on children
                  #}
-                {% for Question in form.children %}
-                    {{  form_widget(Question)   }}
+                {% for Question in form %}
+                    {{ form_widget(Question) }}
                 {% endfor %}
-
                 </tbody>
             </table>
         </fieldset>
@@ -57,13 +55,13 @@
 
     {# widget_attributes will generate class="item" from the DiscountCollectionType.entry_options configuration #}
     <tr {{ block('widget_attributes') }}>
-        <td>{{ form_widget(form.Id) }}</td>
         <td>{{ form_widget(form.Name) }}</td>
         <td>{{ form_widget(form.Type) }}</td>
+        <td class="d-none">{{ form_widget(form.Survey) }}</td>
         <td class="text-center">
-            <a href="#" class="collection-remove btn btn-default" title="Delete element"><span class="glyphicon glyphicon-trash"></span></a>
-            <a href="#" class="collection-add btn btn-default" title="Add element"><span class="glyphicon glyphicon-plus-sign"></span></a>
-            <a href="#" class="collection-duplicate btn btn-default" title="Duplicate element"><span class="glyphicon glyphicon-th-large"></span></a>
+            <a href="#" class="collection-remove btn btn-default" title="Delete element"><i class="fas fa-trash"></i></a>
+            <a href="#" class="collection-add btn btn-default" title="Add element"><i class="fas fa-plus"></i></a>
+            <a href="#" class="collection-duplicate btn btn-default" title="Duplicate element"><i class="fas fa-copy"></i></a>
         </td>
     </tr>
 

@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Survey;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -19,6 +20,9 @@ class SurveyType extends AbstractType
                 'entry_type' => QuestionType::class,
                 'entry_options' => [
                     'label' => false,
+                    'attr' => [
+                        'class' => 'item'
+                    ]
                 ],
                 'allow_add'    => true,
                 'allow_delete' => true,
@@ -29,6 +33,9 @@ class SurveyType extends AbstractType
                 'attr' => array(
                     'class' => 'table QuestionCollection',
                 ),
+            ])
+            ->add('Save', SubmitType::class, [
+                'label' => 'Opslaan',
             ])
         ;
     }
