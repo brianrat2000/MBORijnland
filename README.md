@@ -1,5 +1,7 @@
 # Werkplaats
 
+Voor het clonen kan je `git clone -b DeWerkplekV3--single-branch https://github.com/vQFire/MBORijnland.git` gebruiken, dit zorgt ervoor dat je alleen de huidige branch cloned en niet alle branches.
+
 Rename `.env.test` to `.env`  
 Then run `composer i` and `npm install` or `yarn install` 
 
