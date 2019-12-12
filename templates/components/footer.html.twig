@@ -1,0 +1,67 @@
+<style>
+    @media only screen and (max-width: 1024px){
+        #footer-logo-spacing{
+            display: none !important;
+        }
+    }
+</style>
+<!-- Footer -->
+<footer class="page-footer font-small text-white" style='background-color: #000;'>
+    <!-- Footer Links -->
+    <div class="container text-center text-md-left pt-5">
+        <!-- Grid row -->
+        <div class="row mt-3">
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <!-- Content -->
+            <h6 class="text-uppercase font-weight-bold">MKB Digiwerkplaats</h6>
+            <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" id="footer-logo-spacing" style="width: 60px;">
+            <a class="navbar-brand mt-5" href="{{ path('index') }}"><img id='navbar-brand' style="width: 100%;" src='{{ asset('build/images/69hY88r.png') }}'></a>
+        </div>
+        <!-- Grid column -->
+        <!-- Grid column -->
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase font-weight-bold">Menu</h6>
+            <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+            <p><a class='text-white' href="{{ path('index') }}">Home</a></p>
+            {# <p><a class='text-white' href="{{ path('about') }}">Over MKB</a></p> #}
+            <p><a class='text-white' href="{{ path('survey_fill', {id: 1}) }}">Vragenlijst</a></p>
+            <p><a class='text-white' href="{{ path('contact') }}">Contact</a></p>
+            <p><a class='text-white' href="{{ path('fos_user_registration_register') }}">Meld je aan!</a></p>
+        </div>
+        <!-- Grid column -->
+    
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase font-weight-bold">Informatie</h6>
+            <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+            <p><a class='text-white' href="#!">Algemene Voorwaarden</a></p>
+            <p><a class='text-white' href="#!">Privacy Verklaring</a></p>
+            <p><a class='text-white' href="#!">Cookie Verklaring</a></p>
+            <p><a class='text-white' href="#!">Help</a></p>
+        </div>
+        <!-- Grid column -->
+        <!-- Grid column -->
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase font-weight-bold">Contact</h6>
+            <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+            <p><i class="fas fa-building mr-1"></i> Bleiswijkseweg 37E, 2712 PB Zoetermeer</p>
+            <p><i class="fas fa-envelope mr-1"></i> <a class='text-white' href='mailto:info@dutchinnovationfactory.nl'>info@dutchinnovationfactory.nl</a></p>
+            <p><i class="fas fa-phone mr-1"></i><a class='text-white' href='tel:+ 31 6 12345678'> + 31 6 12345678</a></p>
+        </div>
+        <!-- Grid column -->
+        </div>
+        <!-- Grid row -->
+    </div>
+    <!-- Footer Links -->
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2019 Copyright MKB Digiwerkplaats |
+        <a style='color: #fff;' href="https://bratnayati.nl" target='_blank'> Brian Ratnayati</a> | <a style='color: #fff;' href="https://youpvleeuwen.nl" target='_blank'>Youp van Leeuwen</a> | <a style='color: #fff;' href="https://rvissers.nl" target='_blank'>Roy Vissers</a>
+    
+    </div>
+    <!-- Copyright -->
+    </footer>
+    <!-- Footer -->

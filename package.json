@@ -1,6 +1,8 @@
 {
     "dependencies": {
-      "symfony-collection": "ninsuo/symfony-collection"
+        "jquery": "^3.4.1",
+        "jquery-bar-rating": "^1.2.2",
+        "symfony-collection": "ninsuo/symfony-collection"
     },
     "devDependencies": {
         "@symfony/webpack-encore": "^0.28.0",

@@ -1,0 +1,108 @@
+.masthead {
+    background-image:
+          linear-gradient(to bottom, rgba(000, 000, 000, 0.50), rgba(000, 000, 000, 0.50)),
+          url('../images/background.png') !important;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 100vh;
+      min-height: 500px;
+      display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        align-items: center;
+}
+
+
+label{
+    color: white;;
+}
+
+.headerbutton {
+    font-size: 20px !important;
+    padding: 10px 30px !important;
+    background-color: #FEED02 !important;
+    font-weight: bold !important;
+    letter-spacing: 0.1em !important;
+}
+
+input[type=submit]{
+    float: right;
+    background-color: #F8EF22 !important;
+    color: black;
+    border: 2px solid #F8EF22;
+    padding: 10px 50px;
+}
+
+input[type=submit]:hover{
+    background-color: #00000050 !important;
+    color: #F8EF22 !important;
+    border: 2px solid #F8EF22;
+}
+.nav-link{
+    padding-right: .5rem !important;
+    padding-left: .5rem !important;
+    font-style: normal !important;
+    font-weight: bold !important;
+    line-height: 23px !important;
+    font-size: 16px;
+    letter-spacing: 0.1em !important;
+    color: #fff !important;
+}
+
+@media all and (max-width: 425px){
+    .login-form-container{
+        width: 100% !important;
+    }
+    
+    .register-form{
+        width: 100% !important;
+    }
+}
+
+@media all and (min-width: 768px){
+    .login-form-container{
+        width: 40% !important;
+    }
+}
+
+
+.login-form{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.input-parent{
+    display: grid;
+    padding: 10px 0;
+}
+
+.form-group{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 10px 0;
+}
+
+.form-group>div {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+.form-group>label{
+    max-width: 50% !important;
+}
+
+.fos_user_registration_register{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.register-form{
+    width: 40% !important;
+}

@@ -1,0 +1,346 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+
+
+* {
+    font-family: 'Raleway';
+}
+
+body{
+    height: 100%;
+}
+
+.displayDesktop{
+    display: flex;
+}
+
+.displayDesktop>div{
+    min-height: 100vh;
+}
+
+.displayMobile{
+    display: none;
+}
+
+.background{
+    background-image:
+        linear-gradient(to bottom, rgba(000, 000, 000, 0.50), rgba(000, 000, 000, 0.50)),
+        url('../images/background.png') !important;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    min-height: 500px;
+}
+
+.iconsMobile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0px;
+}
+
+.addtext {
+    margin-bottom: 1.5rem;
+}
+
+.partext {
+    font-size: 18px;
+}
+
+.options{
+    width: 75%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.selectInput{
+    width: 30%;
+    margin: 0 1.5% !important;
+    border-radius: 0 !important;
+    border: 5px solid !important;
+    white-space: inherit;
+}
+
+.options .nietzeggen{
+    border-radius: 0;
+    font-size: 24px;
+    padding: 13px 343px;
+    border: 4px solid white;
+    margin: 10px 10px;
+}
+
+.nextback {
+    margin-bottom: 5%;
+    display: flex;
+    justify-content: center;
+}
+
+.nextback a:hover {
+    color: black;
+    border: 4px solid #F8EF22;
+    background: #F8EF22;
+}
+
+.surveycontrols{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.surveycontrols>a,  .surveycontrols>input{
+    width: 40%;
+    padding: 20px;
+    margin: 0 1.25% !important;
+    border-radius: 0 !important;
+}
+
+.surveycontrols>a, .surveycontrols>input, .selectInput{
+    font-weight: bold !important;
+    font-size: 24px !important;
+    border: 5px solid;
+}
+
+.volgende{
+    background-color: #F8EF22;
+    border: 5px solid #F8EF22 !important;
+    color: black;
+}
+
+.volgende:hover{
+    background-color: black;
+    border: 5px solid white !important;
+    color: white;
+}
+
+.anonymous{
+    width: 100%;
+    margin: 50px 1.5% !important;
+}
+
+.btn-outline-light:focus, .btn{
+    box-shadow: none !important;
+    border-color: white !important;
+}
+
+.surveycontrols>:hover{
+    color: black !important;
+    border: 5px solid #F8EF22 !important;
+}
+
+@media all and (min-width: 320px) and (min-height: 480px){
+    .background{
+        height: auto;
+    }
+}
+
+@media all and (max-width: 425px){
+    .iconsMobile{
+        display: inline;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        padding: 50px 0px;
+        width: 100%;
+    }
+    .iconsMobile img{
+        padding: 20px 0px;
+    }
+    
+    .selectInput{
+        width: 100%;
+        margin: 10px 0 !important;
+    }
+    
+    .surveycontrols{
+        display: block;
+    }
+
+    .surveycontrols>a, .surveycontrols>input{
+        width: 100%;
+        margin: 10px 0 !important;
+    }
+
+    .surveycontrols>a, .surveycontrols>input .selectInput{
+        border: 2px solid;
+        font-size: 18px !important;
+    }
+
+    .progressback{
+        width: 75% !important;
+    }
+}
+
+@media all and (min-width: 426px) and (max-width: 768px){
+    .iconsMobile{
+        flex-wrap: wrap !important;
+        display: flex;
+    }
+    .iconsMobile>div{
+        width: 50%;
+        padding: 0 15%;
+    }
+    .iconsMobile img{
+        width: 100%;
+    }
+    .surveycontrols>a, .surveycontrols>input .selectInput{
+        border: 2px solid;
+        font-size: 16px !important;
+    }
+}
+
+
+@media all and (max-width: 768px){
+    .options a {
+        border-radius: 0;
+        font-size: 24px !important;
+        padding: 13px 20px;
+        border: 4px solid white;
+        margin: 10px 4px;
+    }
+
+    .options .nietzeggen{
+        border-radius: 0;
+        font-size: 24px;
+        padding: 13px 20px;
+        border: 4px solid white;
+        margin: 10px 10px;
+    }
+
+    .displayDesktop{
+        display: none;
+    }
+
+    .displayMobile{
+        display: flex;
+    }
+
+    .iconsDesktop{
+        width: 100% !important;
+    }
+}
+
+@media all and (min-width: 769px) and (max-width: 1024px){
+    .displayDesktop{
+        display: flex;
+        flex-wrap: wrap-reverse;
+    }
+}
+
+@media all and (min-width: 768px){
+    .question{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: row;
+        height: 90vh;
+        min-height: 768px;
+        margin-bottom: 5%;
+    }
+
+    .question>div, .question>h2{
+        width: 80%;
+    }
+}
+
+.br-wrapper.br-theme-bars-square{
+    display: flex !important;
+    justify-content: center !important;
+}
+
+.br-widget>a{
+    border: 5px solid white !important;
+    color: white !important;
+    background-color: unset !important;
+    padding: 30px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    font-size: 30px !important;
+}
+
+.br-widget{
+    width: 100%;
+    height: unset !important;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.br-widget>a.br-active, .br-widget>a.br-selected{
+    border: 5px solid #F8EF22 !important;
+    color: black !important;
+    background-color: #F8EF22 !important;
+}
+
+.square-bars-rating{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 80%;
+}
+
+.rating-description{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+
+.rating-description h4{
+    color: white;
+    font-weight: bold;
+}
+
+@media all and (max-width: 768px){
+    .row.displayDesktop {
+        flex-wrap: wrap-reverse;
+    }
+
+    @media all and (min-width: 425px){
+        .iconsDesktop{
+            width: 50% !important;
+        }   
+
+        .stichtingen{
+            flex-direction: row !important;
+            width: 100%;
+        }
+    }
+
+    .question{
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        height: auto !important;
+        min-height: 100vh !important;
+        flex-wrap: wrap !important;
+        flex-direction: row !important;
+    }
+    .progressback{
+        width: 75vw !important;
+    }
+    .br-widget>a{
+        padding: 5% !important;
+    }
+}
+
+@media all and (max-width: 425px){
+    .br-widget{
+        flex-wrap: wrap !important;
+        justify-content: unset !important;
+    }
+}
+
+.row{
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+}
+
+.selectInput .active{
+    color: black !important;
+    background-color: #F8EF22 !important;
+    border-color: #F8EF22 !important;
+}

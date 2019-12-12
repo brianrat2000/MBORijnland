@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 ###> symfony/framework-bundle ###
 /.env.local
@@ -14,7 +13,6 @@
 .phpunit.result.cache
 /phpunit.xml
 ###< symfony/phpunit-bridge ###
-=======
 # Cache and logs (Symfony2)
 /app/cache/*
 /app/logs/*
@@ -72,7 +70,6 @@
 npm-debug.log
 yarn-error.log
 ###< symfony/webpack-encore-bundle ###
->>>>>>> 873f68357f9dd5d9d0fd2fbb13e437eaf8e49065
 
 ###> symfony/web-server-bundle ###
 /.web-server-pid

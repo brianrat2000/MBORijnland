@@ -1,6 +1,5 @@
 {% block SurveyType_widget %}
     {{ form_row(form.Name) }}
-    {{ form_row(form.Active) }}
 
     {# form_row would write extra markup, so we directly write the collection #}
     {{ form_widget(form.Questions) }}

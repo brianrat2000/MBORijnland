@@ -15,7 +15,6 @@ class SurveyType extends AbstractType
     {
         $builder
             ->add('Name')
-            ->add('Active')
             ->add('Questions', CollectionType::class, [
                 'entry_type' => QuestionType::class,
                 'entry_options' => [

@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}MKB Digiwerkplaats Registratie{% endblock %}
+
+{% block stylesheets %}
+  {{ encore_entry_link_tags('fosbundle') }}
+{% endblock %}
+
+{% block body %}
+
+{% include 'components/header.html.twig' %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+<div class="masthead">
+    <div class="container register-form">
+    {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+        {{ form_widget(form) }}
+        <input class="btn btn-warning" type="submit" value="{{ 'registration.submit'|trans }}" />
+    {{ form_end(form) }}
+    </div>
+</div>
+
+{% endblock %}
