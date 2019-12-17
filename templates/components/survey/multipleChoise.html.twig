@@ -1,6 +1,14 @@
 <div class="options text-center text-white">
-    <input name="vorige" type="submit" value="Vaak" class="btn btn-outline-light py-3 px-5 selectInput">
-    <input name="vorige" type="submit" value="Soms" class="btn btn-outline-light py-3 px-5 selectInput">
-    <input name="vorige" type="submit" value="Nooit" class="btn btn-outline-light py-3 px-5 selectInput">
-    <input name="vorige" type="submit" value="Wil ik liever niet zeggen" class="btn btn-outline-light mt-5 p-5 selectInput anonymous" style="display: flex; justify-content: center; align-items: center; margin: 0 auto;">
+    {% for option in question.questionOptions %}
+        <input name="vorige" type="submit" value="{{ option.Value }}" class="btn btn-outline-light py-3 px-5 selectInput">
+    {% endfor %}
+    <input name="vorige" type="submit" value="Wil ik liever niet zeggen" class="{% if question.Required %}d-none{% endif %} btn btn-outline-light p-5 selectInput anonymous" style="display: flex; justify-content: center; align-items: center; margin: 0 auto;">
 </div>
+
+<script>
+    const options = document.getElementsByClassName('selectInput')
+
+    if ((options.length - 1) % 2) {
+        options[options.length - 2].style.width = "100%"
+    }
+</script>

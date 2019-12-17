@@ -40,6 +40,11 @@ class Question
      */
     private $questionOptions;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $Required;
+
     public function __construct()
     {
         $this->questionOptions = new ArrayCollection();
@@ -88,7 +93,7 @@ class Question
 
     public function __toString()
     {
-        return strval($this->getId());
+        return $this->getName() . " (" . $this->getSurvey() . ")";
     }
 
     /**
@@ -118,6 +123,18 @@ class Question
                 $questionOption->setQuestion(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getRequired(): ?bool
+    {
+        return $this->Required;
+    }
+
+    public function setRequired(bool $Required): self
+    {
+        $this->Required = $Required;
 
         return $this;
     }

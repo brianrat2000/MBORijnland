@@ -63,6 +63,11 @@
             <a href="#" class="collection-duplicate btn btn-default" title="Duplicate element"><i class="fas fa-copy"></i></a>
         </td>
     </tr>
+    {% if form.QuestionOptions.children %}
+            {% for option in form.QuestionOptions.children %}
+                <tr>{{ form_widget(option.children["Value"]) }}</tr>
+            {% endfor %}
+    {% endif %}
 
 {% endblock %}
 
