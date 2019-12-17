@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -32,6 +34,16 @@ class Question
      * @ORM\JoinColumn(nullable=false)
      */
     private $Type;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\QuestionOption", mappedBy="Question", orphanRemoval=true)
+     */
+    private $questionOptions;
+
+    public function __construct()
+    {
+        $this->questionOptions = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -70,6 +82,42 @@ class Question
     public function setType(?QuestionType $Type): self
     {
         $this->Type = $Type;
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return strval($this->getId());
+    }
+
+    /**
+     * @return Collection|QuestionOption[]
+     */
+    public function getQuestionOptions(): Collection
+    {
+        return $this->questionOptions;
+    }
+
+    public function addQuestionOption(QuestionOption $questionOption): self
+    {
+        if (!$this->questionOptions->contains($questionOption)) {
+            $this->questionOptions[] = $questionOption;
+            $questionOption->setQuestion($this);
+        }
+
+        return $this;
+    }
+
+    public function removeQuestionOption(QuestionOption $questionOption): self
+    {
+        if ($this->questionOptions->contains($questionOption)) {
+            $this->questionOptions->removeElement($questionOption);
+            // set the owning side to null (unless already changed)
+            if ($questionOption->getQuestion() === $this) {
+                $questionOption->setQuestion(null);
+            }
+        }
 
         return $this;
     }

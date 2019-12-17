@@ -13,6 +13,9 @@
         align-items: center;
 }
 
+.register-form{
+    width: 40% !important;
+}
 
 label{
     color: white;;
@@ -103,6 +106,3 @@ input[type=submit]:hover{
     flex-direction: column;
 }
 
-.register-form{
-    width: 40% !important;
-}

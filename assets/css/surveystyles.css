@@ -5,6 +5,10 @@
     font-family: 'Raleway';
 }
 
+h2 {
+    width: 100%;
+}
+
 body{
     height: 100%;
 }
@@ -17,10 +21,6 @@ body{
     min-height: 100vh;
 }
 
-.displayMobile{
-    display: none;
-}
-
 .background{
     background-image:
         linear-gradient(to bottom, rgba(000, 000, 000, 0.50), rgba(000, 000, 000, 0.50)),
@@ -31,14 +31,6 @@ body{
     height: 100vh;
     min-height: 500px;
 }
-
-.iconsMobile{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 50px 0px;
-}
-
 .addtext {
     margin-bottom: 1.5rem;
 }
@@ -135,24 +127,18 @@ body{
     }
 }
 
+.iconsDesktop a{
+    width: 100% !important;
+}
+
 @media all and (max-width: 425px){
-    .iconsMobile{
-        display: inline;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-        padding: 50px 0px;
-        width: 100%;
-    }
-    .iconsMobile img{
-        padding: 20px 0px;
-    }
-    
     .selectInput{
         width: 100%;
         margin: 10px 0 !important;
+        font-size: 16px !important;
+        padding: 0 !important;
     }
-    
+
     .surveycontrols{
         display: block;
     }
@@ -160,6 +146,7 @@ body{
     .surveycontrols>a, .surveycontrols>input{
         width: 100%;
         margin: 10px 0 !important;
+        font-size: 16px !important;
     }
 
     .surveycontrols>a, .surveycontrols>input .selectInput{
@@ -170,20 +157,11 @@ body{
     .progressback{
         width: 75% !important;
     }
+
+
 }
 
 @media all and (min-width: 426px) and (max-width: 768px){
-    .iconsMobile{
-        flex-wrap: wrap !important;
-        display: flex;
-    }
-    .iconsMobile>div{
-        width: 50%;
-        padding: 0 15%;
-    }
-    .iconsMobile img{
-        width: 100%;
-    }
     .surveycontrols>a, .surveycontrols>input .selectInput{
         border: 2px solid;
         font-size: 16px !important;
@@ -192,14 +170,6 @@ body{
 
 
 @media all and (max-width: 768px){
-    .options a {
-        border-radius: 0;
-        font-size: 24px !important;
-        padding: 13px 20px;
-        border: 4px solid white;
-        margin: 10px 4px;
-    }
-
     .options .nietzeggen{
         border-radius: 0;
         font-size: 24px;
@@ -212,12 +182,18 @@ body{
         display: none;
     }
 
-    .displayMobile{
-        display: flex;
+    .iconsDesktop {
+        width: 100% !important  ;
     }
 
-    .iconsDesktop{
-        width: 100% !important;
+    @media all and (min-width: 426px){
+        .options a {
+            border-radius: 0;
+            font-size: 24px !important;
+            padding: 13px 20px;
+            border: 4px solid white;
+            margin: 10px 4px;
+        }
     }
 }
 
@@ -302,7 +278,7 @@ body{
     @media all and (min-width: 425px){
         .iconsDesktop{
             width: 50% !important;
-        }   
+        }
 
         .stichtingen{
             flex-direction: row !important;

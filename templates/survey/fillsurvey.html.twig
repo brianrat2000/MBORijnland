@@ -15,22 +15,22 @@
             <div class="col-12 col-lg-2">
                 <div class="iconsMobile">
                     <div class="d-flex my-4">
-                        <img class="d-block m-auto" width="150px" src="{{ asset('build/images/logo.png') }}" >
+                        <a href=#<>img class="d-block m-auto" width="150px" src="{{ asset('build/images/logo.png') }}" ></
                     </div>
                     <div class="d-flex my-4">
-                        <img class="d-block m-auto " width="150px" src="{{ asset('build/images/haagselogo.png') }}" >
+                        <a href=#<>img class="d-block m-auto " width="150px" src="{{ asset('build/images/haagselogo.png') }}" ></
                     </div>
                     <div class="d-flex my-4">
-                        <img class="d-block m-auto" width="125px" src="{{ asset('build/images/dif_logo-format2.jpg') }}" >
+                        <a href=#<>img class="d-block m-auto" width="125px" src="{{ asset('build/images/dif_logo-format2.jpg') }}" ></
                     </div>
                     <div class="d-flex my-4">
-                        <img class="d-block m-auto" width="125px" src="{{ asset('build/images/zoetermeer.png') }}" >
+                        <a href=#<>img class="d-block m-auto" width="125px" src="{{ asset('build/images/zoetermeer.png') }}" ></
                     </div>
                     <div class="d-flex my-4">
-                        <img class="d-block m-auto" width="125px" src="{{ asset('build/images/denhaag.jpg') }}" >
+                        <a href=#<>img class="d-block m-auto" width="125px" src="{{ asset('build/images/denhaag.jpg') }}" ></
                     </div>
                     <div class="d-flex my-4">
-                        <img class="d-block m-auto" width="125px" src="{{ asset('build/images/delft.png') }}" >
+                        <a href=#<>img class="d-block m-auto" width="125px" src="{{ asset('build/images/delft.png') }}" ></
                     </div>
                 </div>
             </div>
@@ -73,22 +73,22 @@
         <div class="row displayDesktop">
             <div class="col-12 col-lg-2 p-0 stichtingen" style="display: flex; flex-direction: column; flex-wrap: wrap;">
                 <div class="d-flex m-auto py-4 iconsDesktop">
-                    <img class="d-block m-auto" width="150px" src="{{ asset('build/images/logo.png') }}" >
+                    <a href="#"><img class="d-block m-auto" width="150px" src="{{ asset('build/images/logo.png') }}" ></a>
                 </div>
                 <div class="d-flex m-auto py-4 iconsDesktop">
-                    <img class="d-block m-auto " width="150px" src="{{ asset('build/images/haagselogo.png') }}" >
+                    <a href="#"><img class="d-block m-auto " width="150px" src="{{ asset('build/images/haagselogo.png') }}" ></a>
                 </div>
                 <div class="d-flex m-auto py-4 iconsDesktop">
-                    <img class="d-block m-auto" width="125px" src="{{ asset('build/images/dif_logo-format2.jpg') }}" >
+                    <a href="#"><img class="d-block m-auto" width="125px" src="{{ asset('build/images/dif_logo-format2.jpg') }}" ></a>
                 </div>
                 <div class="d-flex m-auto py-4 iconsDesktop">
-                    <img class="d-block m-auto" width="125px" src="{{ asset('build/images/zoetermeer.png') }}" >
+                    <a href="#"><img class="d-block m-auto" width="125px" src="{{ asset('build/images/zoetermeer.png') }}" ></a>
                 </div>
                 <div class="d-flex m-auto py-4 iconsDesktop">
-                    <img class="d-block m-auto" width="125px" src="{{ asset('build/images/denhaag.jpg') }}" >
+                    <a href="#"><img class="d-block m-auto" width="125px" src="{{ asset('build/images/denhaag.jpg') }}" ></a>
                 </div>
                 <div class="d-flex m-auto py-4 iconsDesktop">
-                    <img class="d-block m-auto" width="125px" src="{{ asset('build/images/delft.png') }}" >
+                    <a href="#"><img class="d-block m-auto" width="125px" src="{{ asset('build/images/delft.png') }}" ></a>
                 </div>
             </div>
             <div class="background col-lg-10" style="background-color: #221E1F;">
@@ -96,13 +96,15 @@
 
                 <div class="question">
                     
-                    <h2 class="text-white text-center my-5 pb-5 font-weight-bold">{{ id }}. {{ question.Name }}</h2>
+                    <h2 class="text-white text-center my-5 font-weight-bold">{{ id }}. {{ question.Name }}</h2>
                     {% set type = question.type.Name %}
                     {% if type == "Multiple Choice" %}
                         {% include "components/survey/multipleChoise.html.twig" %}
 
                         {% elseif type == "Rating" %}
                             {% include "components/survey/rating.html.twig" %}
+                        {% elseif type == "Open" %}
+                            {% include "components/survey/openQuestion.html.twig" %}
                         {% else %}
                             {% include "components/survey/multipleChoise.html.twig" %}
                     {% endif %}
