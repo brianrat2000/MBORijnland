@@ -1,83 +1,86 @@
 <style>
-@import url('https://fonts.googleapis.com/css?family=Karla&display=swap');
+    @import url('https://fonts.googleapis.com/css?family=Karla&display=swap');
 
-* {
-    font-family: 'Karla';
-}
+    * {
+        font-family: 'Karla';
+    }
 
-@media all and (max-width: 768px){
-  .navbar{
-     background: black !important;
-  }
-  .navbar-toggler{
-    background: white;
-  }
-}
+    @media all and (max-width: 768px) {
+        .navbar {
+            background: black !important;
+        }
+
+        .navbar-toggler {
+            background: white;
+        }
+    }
 
 </style>
 
 <navigation class="navbar navbar-expand-lg navbar-light fixed-top" id='navbar-container'>
     <div class="container">
-      <a class="navbar-brand" href="{{ path('index') }}"><img id='navbar-brand' src="{{ asset('build/images/69hY88r.png') }}"></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <a class="navbar-brand" href="{{ path('index') }}"><img id='navbar-brand'
+                                                                src="{{ asset('build/images/69hY88r.png') }}"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
-          </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="{{ path('index') }}">Home
-                  <span class="sr-only">(current)</span>
-                </a>
-          </li>
-          {# <li class="nav-item">
-            <a class="nav-link" href="{{ path('about') }}">Over MKB</a>
-          </li> #}
-          <li class="nav-item">
-            <a class="nav-link" href="{{ path('survey_fill', {'id': 1}) }}">Vragenlijst</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ path('contact') }}">Contact</a>
-          </li>
-          {% if app.user %}
-          <li class="nav-item">
-            <a class="nav-link" href="{{ path('fos_user_profile_show') }}">Profiel</a>
-          </li>
-           <li class="nav-item">
-            <a class="nav-link" href="{{ path('fos_user_security_logout') }}">Uitloggen</a>
-          </li>
-          {% else %}
-           <li>
-           <a class="nav-link" href="{{ path('fos_user_registration_register') }}">Registreren</a>
-          </li>
-          <li>
-           <a class="nav-link" href="{{ path('fos_user_security_login') }}">Inloggen</a>
-          </li>
-          {% endif %}
-        </ul>
-      </div>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{ path('index') }}">Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                {# <li class="nav-item">
+                  <a class="nav-link" href="{{ path('about') }}">Over MKB</a>
+                </li> #}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('survey_fill', {'id': 1}) }}">Vragenlijst</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('contact') }}">Contact</a>
+                </li>
+                {% if app.user %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('fos_user_profile_show') }}">Profiel</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('fos_user_security_logout') }}">Uitloggen</a>
+                    </li>
+                {% else %}
+                    <li>
+                        <a class="nav-link" href="{{ path('fos_user_registration_register') }}">Registreren</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="{{ path('fos_user_security_login') }}">Inloggen</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
     </div>
-  </navigation>
+</navigation>
 
-  <script>
-  window.onscroll = function() {scrollFunction()};
+<script>
+    window.onscroll = function () {
+        scrollFunction()
+    };
+    let navbarBrand = document.getElementById("navbar-brand");
+    let navbarContainer = document.getElementById("navbar-container");
 
-  function scrollFunction() {
-    if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-      document.getElementById("navbar-brand").style.width = "150px";
-      document.getElementById("navbar-container").style.backgroundColor = "rgba(0,0,0,1)";
-      function resizeText() {
-      var x = document.getElementsByClassName("nav-link");
-      for (var i = 0; i < x.length; i++) {
-          x[i].style.fontSize="16px";
-          }
-      };
-    } else {
-      document.getElementById("navbar-brand").style.width = "200px";
-      document.getElementById("navbar-container").style.backgroundColor = "rgba(255,255,255,0)";
-      var x = document.getElementsByClassName("nav-link");
-      for (var i = 0; i < x.length; i++) {
-          x[i].style.fontSize="16px";
-          }
-      }
-  }
+    function scrollFunction() {
+        if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+            navbarBrand.setAttribute('style', 'width: 150px, transition: 0.375s')
+            // navbarBrand.style.width = "150px";
+            // navbarBrand.style.transition = '0.375s';
+            navbarContainer.style.backgroundColor = "rgba(0,0,0,1)";
+        } else {
+            navbarBrand.style.width = "200px";
+            navbarContainer.style.backgroundColor = "rgba(255,255,255,0)";
+            let x = document.getElementsByClassName("nav-link");
+            for (let i = 0; i < x.length; i++) {
+                x[i].style.fontSize = "16px";
+            }
+        }
+    }
 </script>
